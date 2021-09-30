@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% set active_page = "home" %}
+{% block content %}
+
+    <div class="row">
+        <div class="col-md-7 my-auto">
+            <h1 class="header">Plants for your pad</h1>
+            <p>Join our community to discover the best houseplants for your home and share your favourites with others.</p>
+            {% if session.user %}
+                <a href="{{ url_for('add_plant') }}" class="btn btn-dark">Add a Plant</a>
+            {% else %}
+                <a href="{{ url_for('register') }}" class="btn btn-dark">Register</a>
+            {% endif %}
+        </div>
+        <div class="col-md-5">
+            <img class="image" src="{{ url_for('static', filename='img/img1.jpg') }}" alt="Plant image">
+        </div>
+    </div>
+
+    <div class="row flex-md-row-reverse">
+        <div class="col-md-7 my-auto">
+            <h1 class="header">Create your indoor jungle</h1>
+            <p>
+                Bring a touch of nature inside by adding some houseplants to your home. 
+                They will not only enhance the appearance of your space, but also reduce stress and anxiety, 
+                boost your mood and purify the air that you breath.<br>
+                Check out our range of plants for some inspiration.
+            </p>
+            <a href="{{ url_for('plants') }}" class="btn btn-dark">Browse Plants</a>
+        </div>
+        <div class="col-md-5">
+            <img class="image" src="{{ url_for('static', filename='img/img2.jpg') }}" alt="Plant image">
+        </div>
+    </div>
+    <div class="row justify-content-md-center">
+        <div class="col-md-7 text-center banner border border-success my-auto">
+            <h5>Why not check out our store? <strong> <a href="https://www.amazon.co.uk/s?k=houseplants" class="link" target="_blank">Shop plants here >></a></strong></h5>
+        </div>
+    </div>
+    
+
+{% endblock %}
